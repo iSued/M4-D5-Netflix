@@ -12,6 +12,10 @@ import {
 } from "react-bootstrap";
 let attempt = 1;
 class NavBar extends React.Component {
+  state = {
+    searchQuery: "",
+  };
+
   handleSearch = () => {
     let getSearchField = document.querySelectorAll(".searchForm");
     if (attempt % 2 === 1) {
@@ -57,7 +61,13 @@ class NavBar extends React.Component {
               <a class="navText"> Back Office </a>
             </Nav.Link>
           </Nav>
-          <Form inline>
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              this.props.onSearch(this.state.searchQuery);
+            }}
+            inline
+          >
             <NotificationsIcon className="notificationicon" />
             <SearchIcon
               className="searchIcon"
@@ -72,6 +82,13 @@ class NavBar extends React.Component {
             <FormControl
               type="text"
               placeholder="Search"
+              value={this.state.searchQuery}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  this.props.onSearch(this.state.searchQuery);
+                }
+              }}
+              onChange={(e) => this.setState({ searchQuery: e.target.value })}
               className="searchForm mr-sm-2 d-none"
             />
             <Button variant="outline-danger" className="searchForm d-none">
