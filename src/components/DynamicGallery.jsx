@@ -1,6 +1,10 @@
-import { Carousel } from "react-bootstrap";
 import React from "react";
 import SingleCarousel from "./SingleCarousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import OwlCarousel from "react-owl-carousel";
+import { Divider } from "@material-ui/core";
+import { Carousel } from "bootstrap";
 
 class DynamicGallery extends React.Component {
   state = {
@@ -22,17 +26,20 @@ class DynamicGallery extends React.Component {
   };
 
   render() {
-    if (this.state.movieArray !== null) {
-      return (
-        <>
-          <Carousel className="mb-5">
-            {this.state.movieArray.map((movie, index) => (
-              <SingleCarousel singlemovie={movie} key={index} />
+    console.log(this.state.movieArray, "here");
+    return (
+      <>
+        {this.state.movieArray.length > 0 && (
+          <OwlCarousel className="owl-theme" loop margin={10} nav>
+            {this.state.movieArray.map((movie) => (
+              <div className="item">
+                <img src={movie.Poster} alt="" />
+              </div>
             ))}
-          </Carousel>
-        </>
-      );
-    }
+          </OwlCarousel>
+        )}
+      </>
+    );
   }
 }
 
