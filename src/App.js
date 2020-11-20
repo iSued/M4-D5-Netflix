@@ -1,7 +1,9 @@
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DynamicGallery from "./components/DynamicGallery";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import { Container } from "react-bootstrap";
 
 function App() {
@@ -13,8 +15,9 @@ function App() {
         <DynamicGallery searchQuery="lord of the rings" />
         <DynamicGallery searchQuery="pokemon" />
       </Container>
+      <Footer />
     </div>
   );
-}
 
+}
 export default App;
