@@ -1,0 +1,9 @@
+.footer__container {
+  background-color: #141414;
+  padding: 40px 40px;
+}
+.footer__container h5 {
+  color: #808080;
+  font-size: 14px;
+  text-align: left;
+}
