@@ -43,7 +43,7 @@ export default function Footer() {
           </Col>
         </Row>
         <Row>
-          <Col className="mt-3">
+          <Col className="mt-3 d-flex justify-content-left">
             <Button className="button">Service Code</Button>
           </Col>
         </Row>
