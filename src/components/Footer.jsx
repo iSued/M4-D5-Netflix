@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
-import "../style/footer.css";
+import "./footer.css";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import InstagramIcon from "@material-ui/icons/Instagram";
