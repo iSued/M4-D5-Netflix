@@ -1,0 +1,50 @@
+import React from "react";
+import SingleCarousel from "./SingleCarousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import OwlCarousel from "react-owl-carousel";
+import "./DynamicGallery.css";
+class DynamicGallery extends React.Component {
+  state = {
+    movieArray: [],
+  };
+
+  componentDidMount = async () => {
+    try {
+      let response = await fetch(
+        `http://www.omdbapi.com/?apikey=1846c79&s=${this.props.searchQuery}`
+      );
+      let paresdResponse = await response.json();
+      let movieArray1 = paresdResponse.Search;
+      response = await fetch(
+        `http://www.omdbapi.com/?apikey=1846c79&s=${this.props.searchQuery}&page=2`
+      );
+      paresdResponse = await response.json();
+      let movieArray2 = paresdResponse.Search;
+      let totalArray = movieArray1.concat(movieArray2);
+      this.setState({ movieArray: totalArray });
+      console.log(this.state.movieArray);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  render() {
+    console.log(this.state.movieArray, "here");
+    return (
+      <>
+        {this.state.movieArray.length > 0 && (
+          <OwlCarousel className="owl-theme" margin={10}>
+            {this.state.movieArray.map((movie) => (
+              <div className="item" style={{ width: "160px" }}>
+                <img src={movie.Poster} alt="" />
+              </div>
+            ))}
+          </OwlCarousel>
+        )}
+      </>
+    );
+  }
+}
+
+export default DynamicGallery;
