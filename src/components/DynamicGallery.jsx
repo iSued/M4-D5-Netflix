@@ -8,23 +8,27 @@ import { Carousel } from "bootstrap";
 
 class DynamicGallery extends React.Component {
   render() {
-    return (
-      <>
-        <h2 className="align-self-start">
-          First {this.props.movieArray.length} results for:{" "}
-          {this.props.searchQuery}
-        </h2>
-        {this.props.movieArray.length > 0 && (
-          <OwlCarousel margin={10}>
-            {this.props.movieArray.map((movie) => (
-              <div className="item">
-                <img src={movie.Poster} alt="" />
-              </div>
-            ))}
-          </OwlCarousel>
-        )}
-      </>
-    );
+    if (this.props.movieArray) {
+      return (
+        <>
+          <h2 className="align-self-start">
+            First {this.props.movieArray.length} results for:{" "}
+            {this.props.searchQuery}
+          </h2>
+          {this.props.movieArray.length > 0 && (
+            <OwlCarousel margin={10}>
+              {this.props.movieArray.map((movie) => (
+                <div className="item">
+                  <img src={movie.Poster} alt="" />
+                </div>
+              ))}
+            </OwlCarousel>
+          )}
+        </>
+      );
+    } else {
+      return <h1 className="mb-5">No search results found :(</h1>;
+    }
   }
 }
 
