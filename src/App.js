@@ -1,4 +1,3 @@
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DynamicGallery from "./components/DynamicGallery";
@@ -10,7 +9,10 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Container fluid className="d-flex flex-column justify-content-center">
+      <Container
+        fluid
+        className="d-flex flex-column justify-content-center px-5"
+      >
         <DynamicGallery searchQuery="harry" />
         <DynamicGallery searchQuery="lord of the rings" />
         <DynamicGallery searchQuery="pokemon" />
@@ -18,6 +20,5 @@ function App() {
       <Footer />
     </div>
   );
-
 }
 export default App;
