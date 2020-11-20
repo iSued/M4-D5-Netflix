@@ -1,11 +1,17 @@
 .footer__container {
   background-color: #141414;
-  padding: 40px 40px;
+  padding: 10px;
 }
 .footer__container h5 {
   color: #808080;
   font-size: 14px;
   text-align: left;
+}
+
+h6 {
+  color: #808080;
+  text-align: left;
+  font-size: 13px;
 }
 
 .icon {
@@ -17,7 +23,7 @@
   background-color: #141414;
   color: #808080;
   border-color: #808080;
-  text-size: 14px;
+  font-size: 14px;
 }
 
 .button:hover {

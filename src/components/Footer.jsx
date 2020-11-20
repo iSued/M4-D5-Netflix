@@ -43,8 +43,13 @@ export default function Footer() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="mt-3">
             <Button className="button">Service Code</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="mt-3">
+            <h6>© 1997-2020 Netflix, Inc.</h6>
           </Col>
         </Row>
       </Container>
