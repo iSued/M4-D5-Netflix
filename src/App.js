@@ -12,10 +12,11 @@ import FixedGallery from "./components/FixedGallery";
 class App extends React.Component {
   state = {
     movieArray: [],
-    query: "",
+    query: "marvel",
+    loading: true,
   };
   componentDidMount() {
-    this.fetchMovies("harry potter");
+    this.fetchMovies("marvel");
   }
   onSearch = (searchQuery) => {
     this.fetchMovies(searchQuery);
@@ -28,9 +29,10 @@ class App extends React.Component {
       );
       let paresdResponse = await response.json();
       let movieArray = paresdResponse.Search;
-      this.setState({ movieArray: movieArray });
+      this.setState({ movieArray: movieArray, loading: false });
     } catch (e) {
       console.log(e);
+      this.setState({ loading: false });
     }
   };
   render() {
@@ -43,9 +45,18 @@ class App extends React.Component {
             searchQuery={this.state.query}
             movieArray={this.state.movieArray}
           />
-          <FixedGallery searchQuery="harry potter" />
-          <FixedGallery searchQuery="lord of the rings" />
-          <FixedGallery searchQuery="pokemon" />
+          <FixedGallery
+            loadingstate={this.state.loading}
+            searchQuery="harry potter"
+          />
+          <FixedGallery
+            loadingstate={this.state.loading}
+            searchQuery="lord of the rings"
+          />
+          <FixedGallery
+            loadingstate={this.state.loading}
+            searchQuery="pokemon"
+          />
         </Container>
         <Footer />
       </div>

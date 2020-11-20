@@ -36,7 +36,7 @@ class FixedGallery extends React.Component {
         </h2>
 
         {this.state.movieArray.length > 0 && (
-          <OwlCarousel margin={10}>
+          <OwlCarousel margin={10} mouseDrag={true}>
             {this.state.movieArray.map((movie) => (
               <div className="item" style={{ width: "160px" }}>
                 <img src={movie.Poster} alt="" />
