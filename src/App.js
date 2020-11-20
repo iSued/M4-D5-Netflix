@@ -1,10 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DynamicGallery from "./components/DynamicGallery";
 import NavBar from "./components/NavBar";
+
+import Footer from "./components/Footer";
+import { Container } from "react-bootstrap";
+import FixedGallery from "./components/FixedGallery";
 
 class App extends React.Component {
   state = {
@@ -33,7 +36,13 @@ class App extends React.Component {
       <div className="App">
         <NavBar onSearch={this.onSearch} />
 
-        <DynamicGallery movieArray={this.state.movieArray} />
+        <Container fluid className="px-5">
+          <DynamicGallery movieArray={this.state.movieArray} />
+          <FixedGallery searchQuery="harry potter" />
+          <FixedGallery searchQuery="lord of the rings" />
+          <FixedGallery searchQuery="pokemon" />
+        </Container>
+        <Footer />
       </div>
     );
   }

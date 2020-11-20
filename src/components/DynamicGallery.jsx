@@ -11,7 +11,7 @@ class DynamicGallery extends React.Component {
     return (
       <>
         {this.props.movieArray.length > 0 && (
-          <OwlCarousel className="owl-theme" loop margin={10} nav>
+          <OwlCarousel margin={10}>
             {this.props.movieArray.map((movie) => (
               <div className="item">
                 <img src={movie.Poster} alt="" />
