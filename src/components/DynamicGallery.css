@@ -1,0 +1,12 @@
+body {
+  background-color: #343a40;
+}
+
+.owl-carousel img {
+  height: 100px;
+  object-fit: cover;
+}
+
+.owl-item {
+  width: 160px !important;
+}

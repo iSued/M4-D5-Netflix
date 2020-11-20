@@ -3,9 +3,7 @@ import SingleCarousel from "./SingleCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import OwlCarousel from "react-owl-carousel";
-import { Divider } from "@material-ui/core";
-import { Carousel } from "bootstrap";
-
+import "./DynamicGallery.css";
 class DynamicGallery extends React.Component {
   state = {
     movieArray: [],
@@ -14,11 +12,17 @@ class DynamicGallery extends React.Component {
   componentDidMount = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=1846c79&s=harry+potter"
+        `http://www.omdbapi.com/?apikey=1846c79&s=${this.props.searchQuery}`
       );
       let paresdResponse = await response.json();
-      let movieArray = paresdResponse.Search;
-      this.setState({ movieArray: movieArray });
+      let movieArray1 = paresdResponse.Search;
+      response = await fetch(
+        `http://www.omdbapi.com/?apikey=1846c79&s=${this.props.searchQuery}&page=2`
+      );
+      paresdResponse = await response.json();
+      let movieArray2 = paresdResponse.Search;
+      let totalArray = movieArray1.concat(movieArray2);
+      this.setState({ movieArray: totalArray });
       console.log(this.state.movieArray);
     } catch (e) {
       console.log(e);
@@ -30,9 +34,9 @@ class DynamicGallery extends React.Component {
     return (
       <>
         {this.state.movieArray.length > 0 && (
-          <OwlCarousel className="owl-theme" loop margin={10} nav>
+          <OwlCarousel className="owl-theme" margin={10}>
             {this.state.movieArray.map((movie) => (
-              <div className="item">
+              <div className="item" style={{ width: "160px" }}>
                 <img src={movie.Poster} alt="" />
               </div>
             ))}
