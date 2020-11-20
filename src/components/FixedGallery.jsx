@@ -23,14 +23,12 @@ class FixedGallery extends React.Component {
       let movieArray2 = paresdResponse.Search;
       let totalArray = movieArray1.concat(movieArray2);
       this.setState({ movieArray: totalArray });
-      console.log(this.state.movieArray);
     } catch (e) {
       console.log(e);
     }
   };
 
   render() {
-    console.log(this.state.movieArray, "here");
     return (
       <>
         <h2 className="align-self-start">
