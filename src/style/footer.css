@@ -7,3 +7,21 @@
   font-size: 14px;
   text-align: left;
 }
+
+.icon {
+  color: #808080;
+}
+
+.button {
+  border-radius: 0%;
+  background-color: #141414;
+  color: #808080;
+  border-color: #808080;
+  text-size: 14px;
+}
+
+.button:hover {
+  background-color: #141414;
+  color: aliceblue;
+  border-color: #808080;
+}

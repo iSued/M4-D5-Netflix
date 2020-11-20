@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Button } from "react-bootstrap";
 import "../style/footer.css";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import InstagramIcon from "@material-ui/icons/Instagram";
-import { green, red, blue } from '@material-ui/core/colors';
+
 
 export default function Footer() {
   return (
@@ -13,9 +13,9 @@ export default function Footer() {
         <Row>
           <Col className="mb-3">
             <div className="d-flex">
-                <FacebookIcon className="mr-3" style={{ color: green[200] }, { fontSize: 35 }} />
-                <InstagramIcon className="mr-3" style={{ color: green[200] }, { fontSize: 35 }} />
-                <YouTubeIcon className="mr-3" style={{ color: green[200] }, { fontSize: 35 }} />
+                <FacebookIcon className="icon mr-3" style={{ fontSize: 33 }}/>
+                <InstagramIcon className="icon mr-3" style={{ fontSize: 33 }}/>
+                <YouTubeIcon className="icon mr-3" style={{ fontSize: 36 }}/>
             </div>
           </Col>
         </Row>
@@ -40,6 +40,11 @@ export default function Footer() {
             <h5 className="mb-3">Gift Cards</h5>
             <h5 className="mb-3">Terms of Use</h5>
             <h5 className="mb-3">Corporate Information</h5>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button className="button">Service Code</Button>
           </Col>
         </Row>
       </Container>
