@@ -12,12 +12,14 @@ import FixedGallery from "./components/FixedGallery";
 class App extends React.Component {
   state = {
     movieArray: [],
+    query: "",
   };
   componentDidMount() {
     this.fetchMovies("harry potter");
   }
   onSearch = (searchQuery) => {
     this.fetchMovies(searchQuery);
+    this.setState({ query: searchQuery });
   };
   fetchMovies = async (query) => {
     try {
@@ -36,8 +38,11 @@ class App extends React.Component {
       <div className="App">
         <NavBar onSearch={this.onSearch} />
 
-        <Container fluid className="px-5">
-          <DynamicGallery movieArray={this.state.movieArray} />
+        <Container fluid className="px-5 mt-5">
+          <DynamicGallery
+            searchQuery={this.state.query}
+            movieArray={this.state.movieArray}
+          />
           <FixedGallery searchQuery="harry potter" />
           <FixedGallery searchQuery="lord of the rings" />
           <FixedGallery searchQuery="pokemon" />
