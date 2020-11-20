@@ -33,11 +33,16 @@ class DynamicGallery extends React.Component {
     console.log(this.state.movieArray, "here");
     return (
       <>
+        <h2 className="align-self-start">
+          Search for: {this.props.searchQuery}
+        </h2>
+
         {this.state.movieArray.length > 0 && (
-          <OwlCarousel className="owl-theme" margin={10}>
+          <OwlCarousel margin={10}>
             {this.state.movieArray.map((movie) => (
               <div className="item" style={{ width: "160px" }}>
                 <img src={movie.Poster} alt="" />
+                <div></div>
               </div>
             ))}
           </OwlCarousel>
